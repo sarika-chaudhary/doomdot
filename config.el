@@ -55,7 +55,7 @@
 ;;
 ;;   - Setting file/directory variables (like `org-directory')
 ;;   - Setting variables which explicitly tell you to set them before their
-;;     package is loaded (see 'C-h v VARIABLE' to look them up).
+;;     package is loaded (see 'C-h v VARIABLE' to look up).
 ;;   - Setting doom variables (which start with 'doom-' or '+').
 ;;
 ;; Here are some additional functions/macros that will help you configure Doom.
@@ -89,4 +89,29 @@
 (setq ispell-extra-args '("--sug-mode=ultra"))
 
 (setq ispell-program-name "/opt/homebrew/bin/aspell")
+
+;; PDF Tools Configuration
+(after! pdf-tools
+  ;; Enable pdf-tools for PDF files
+  (pdf-tools-install-noverify)
+  
+  ;; Set default PDF viewer settings
+  (setq-default pdf-view-display-size 'fit-page)
+  (setq pdf-view-use-scaling t)
+  (setq pdf-view-use-imagemagick nil)
+  
+  ;; Key bindings for PDF mode
+  (map! :map pdf-view-mode-map
+        :n "j" #'pdf-view-next-line-or-next-page
+        :n "k" #'pdf-view-previous-line-or-previous-page
+        :n "g" #'pdf-view-goto-page
+        :n "G" #'pdf-view-last-page
+        :n "0" #'pdf-view-first-page
+        :n "+" #'pdf-view-enlarge
+        :n "-" #'pdf-view-shrink
+        :n "=" #'pdf-view-scale-reset
+        :n "w" #'pdf-view-fit-width-to-window
+        :n "h" #'pdf-view-fit-height-to-window
+        :n "p" #'pdf-view-fit-page-to-window
+        :n "s" #'pdf-occur))
 
