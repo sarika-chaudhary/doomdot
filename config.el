@@ -78,3 +78,15 @@
 ;; Make vterm behave like a normal window (not popup)
 (after! vterm
   (set-popup-rule! "*vterm*" :ignore t))
+
+(setq org-directory "~/org/")
+(setq org-roam-directory (file-truename "~/org/roam/"))
+
+(after! org-roam
+  (org-roam-db-autosync-mode))
+
+(setq ispell-program-name "aspell")
+(setq ispell-extra-args '("--sug-mode=ultra"))
+
+(setq ispell-program-name "/opt/homebrew/bin/aspell")
+

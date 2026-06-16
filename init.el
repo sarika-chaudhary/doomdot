@@ -90,7 +90,7 @@
 
        :tools
        ;;ansible
-       ;;biblio            ; Writes a PhD for you (citation needed)
+       biblio            ; Writes a PhD for you (citation needed)
        ;;collab            ; buffers with friends
        ;;debugger          ; stepping through code, to help you add bugs
        ;;direnv
@@ -101,14 +101,16 @@
        lookup              ; navigate your code and its documentation
        ;;llm               ; when I said you needed friends, I didn't mean...
        (lsp +eglot)      ; M-x vscode
+       lsp
        magit             ; a git porcelain for Emacs
        ;;make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
-       pdf               ; pdf enhancements
+       pdf-tools               ; pdf enhancements
        ;;terraform         ; infrastructure as code
        ;;tmux              ; an API for interacting with tmux
        ;;tree-sitter       ; syntax and parsing, sitting in a tree...
        ;;upload            ; map local to remote projects via ssh/ftp
+       jupyter
 
        :os
        (:if (featurep :system 'macos) macos)  ; improve compatibility with macOS
@@ -181,6 +183,8 @@
        ;;web               ; the tubes
        yaml              ; JSON, but readable
        ;;zig               ; C, but simpler
+       (org +roam2)
+
 
        :email
        ;;(mu4e +org +gmail)
